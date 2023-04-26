@@ -1,3 +1,4 @@
 .index {
-  max-width: var(--max-width);
+  max-width: var(--max-page-width);
+  margin: 0 auto;
 }

@@ -3,18 +3,27 @@ import SearchBox from "@/components/molecules/search-box/SearchBox";
 import { GetServerSideProps } from "next";
 import { useCallback, useMemo, useState } from "react";
 import { filterPlaylistData } from "@/utils/helpers";
+import TileList from "@/components/organisms/tile-list/TileList";
+import Tile from "@/components/molecules/tile/Tile";
 
-// TODO: Check where this interface needs to move to.
+// TODO: Check where these interfaces and types needs to move to..
 export type PlaylistEntry = {
   title: {
     label: string;
   };
+  id: PlaylistIDEntry;
   "im:artist": PlaylistAuthorEntry;
   "im:image": [PlaylistImageEntry, PlaylistImageEntry, PlaylistImageEntry];
 };
 
 type PlaylistKeyEntry = {
   label: string;
+};
+
+type PlaylistIDEntry = PlaylistKeyEntry & {
+  attributes: {
+    "im:id": string;
+  };
 };
 
 type PlaylistImageEntry = PlaylistKeyEntry & {
@@ -49,8 +58,6 @@ const Home = ({ playlistData }: HomePageProps) => {
     [playlistData, searchQuery]
   );
 
-  console.log({ searchQuery, filteredPlaylistData });
-
   return (
     <div className={styles.index}>
       <div className={styles.searchBoxContainer}>
@@ -59,6 +66,21 @@ const Home = ({ playlistData }: HomePageProps) => {
           onSubmit={handleSearchBoxSubmit}
         />
       </div>
+      <TileList>
+        {filteredPlaylistData.map((entry) => {
+          const id = entry.id.attributes["im:id"];
+
+          return (
+            <Tile
+              key={id}
+              href={`/podcast/${id}`}
+              title={entry.title.label}
+              author={entry["im:artist"].label}
+              imageSrc={entry["im:image"][2].label}
+            />
+          );
+        })}
+      </TileList>
     </div>
   );
 };

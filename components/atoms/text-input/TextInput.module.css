@@ -1,0 +1,5 @@
+.textInput {
+  padding: 0.5rem;
+  min-width: 320px;
+  border: 1px var(--border-color) solid;
+}

@@ -1,8 +1,11 @@
 import styles from "@/styles/Index.module.css";
+import SearchBox from "@/components/molecules/search-box/SearchBox";
 
 const Home = () => (
   <div className={styles.index}>
-    <p>Index</p>
+    <div className={styles.searchBoxContainer}>
+      <SearchBox />
+    </div>
   </div>
 );
 

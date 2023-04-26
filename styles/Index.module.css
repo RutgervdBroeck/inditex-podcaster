@@ -2,3 +2,8 @@
   max-width: var(--max-page-width);
   margin: 0 auto;
 }
+
+.searchBoxContainer {
+  display: flex;
+  justify-content: end;
+}

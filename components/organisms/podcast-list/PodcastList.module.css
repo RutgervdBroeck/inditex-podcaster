@@ -1,0 +1,26 @@
+.container {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  padding: 0.8rem;
+  color: var(--title-color);
+  font-weight: bold;
+}
+
+.title {
+  flex: 0.75;
+}
+
+.date {
+  flex: 0.15;
+}
+
+.duration {
+  flex: 0.1;
+}
+
+.list li:nth-child(odd) {
+  background-color: var(--list-bg-color);
+}

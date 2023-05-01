@@ -1,0 +1,17 @@
+.item {
+  display: flex;
+  padding: 0.8rem;
+}
+
+.item a {
+  flex: 0.75;
+  color: var(--title-color);
+}
+
+.date {
+  flex: 0.15;
+}
+
+.duration {
+  flex: 0.1;
+}

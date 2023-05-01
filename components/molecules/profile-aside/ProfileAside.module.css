@@ -1,0 +1,24 @@
+.aside {
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px var(--border-color) solid;
+}
+
+.aside img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.aside h3 {
+  color: var(--title-color);
+}
+
+.aside h4 {
+  color: var(--title-color);
+}
+
+.block {
+  border-top: 1px var(--border-color) solid;
+  padding-top: 1rem;
+  margin: 1rem 0;
+}

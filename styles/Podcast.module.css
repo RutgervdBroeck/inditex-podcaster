@@ -4,3 +4,15 @@
   margin: 0 auto;
   gap: 2rem;
 }
+
+.container {
+  flex: 1;
+}
+
+.title {
+  flex: 1;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px var(--border-color) solid;
+  color: var(--title-color);
+}

@@ -1,5 +1,7 @@
 .container {
   flex: 1;
+  padding: 1rem;
+  border: 1px var(--border-color) solid;
 }
 
 .header {

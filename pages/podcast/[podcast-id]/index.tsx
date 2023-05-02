@@ -22,19 +22,24 @@ const PodcastPage = ({ podcastData, episodesData }: PodcastPageProps) => {
         author={podcastData.artistName}
         description={podcastData.description} // TODO: The description doesn't seem to be in the first item of the response?
       />
-      <PodcastList>
-        {episodesData.map(
-          ({ trackId, trackName, releaseDate, trackTimeMillis }, id) => (
-            <PodcastItem
-              key={id}
-              title={trackName}
-              href={`${router.asPath}/episode/${trackId}`}
-              date={formatDate(releaseDate)}
-              duration={formatMilliseconds(trackTimeMillis)}
-            />
-          )
-        )}
-      </PodcastList>
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <h1>Episodes: {episodesData.length}</h1>
+        </div>
+        <PodcastList>
+          {episodesData.map(
+            ({ trackId, trackName, releaseDate, trackTimeMillis }, id) => (
+              <PodcastItem
+                key={id}
+                title={trackName}
+                href={`${router.asPath}/episode/${trackId}`}
+                date={formatDate(releaseDate)}
+                duration={formatMilliseconds(trackTimeMillis)}
+              />
+            )
+          )}
+        </PodcastList>
+      </div>
     </div>
   );
 };

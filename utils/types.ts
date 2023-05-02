@@ -1,3 +1,40 @@
+export type PlaylistEntry = {
+  title: {
+    label: string;
+  };
+  id: PlaylistIDEntry;
+  "im:artist": PlaylistAuthorEntry;
+  "im:image": [PlaylistImageEntry, PlaylistImageEntry, PlaylistImageEntry];
+};
+
+type PlaylistKeyEntry = {
+  label: string;
+};
+
+type PlaylistIDEntry = PlaylistKeyEntry & {
+  attributes: {
+    "im:id": string;
+  };
+};
+
+type PlaylistImageEntry = PlaylistKeyEntry & {
+  attributes: {
+    height: string;
+  };
+};
+
+type PlaylistAuthorEntry = PlaylistKeyEntry & {
+  attributes: {
+    href: string;
+  };
+};
+
+type PlaylistResponseData = {
+  feed: {
+    entry: PlaylistEntry[];
+  };
+};
+
 type PodcastEntry = {
   artistId: number;
   artistName: string;

@@ -6,21 +6,6 @@ import { formatDate, formatMilliseconds } from "@/utils/helpers";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 
-type PodcastEntry = {
-  artistId: number;
-  artistName: string;
-  collectionName: string;
-  artworkUrl600: string;
-  description: string; // TODO: The description doesn't seem to be there in the response?
-};
-
-type EpisodeEntry = {
-  trackId: string;
-  trackName: string;
-  releaseDate: string;
-  trackTimeMillis: number;
-};
-
 interface PodcastPageProps {
   podcastData: PodcastEntry;
   episodesData: EpisodeEntry[];
@@ -35,7 +20,7 @@ const PodcastPage = ({ podcastData, episodesData }: PodcastPageProps) => {
         imageSrc={podcastData.artworkUrl600}
         title={podcastData.collectionName}
         author={podcastData.artistName}
-        description={podcastData.description}
+        description={podcastData.description} // TODO: The description doesn't seem to be in the first item of the response?
       />
       <PodcastList>
         {episodesData.map(

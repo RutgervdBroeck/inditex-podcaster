@@ -1,0 +1,14 @@
+.episodeDetail {
+  flex: 1;
+  padding: 1rem;
+  border: 1px var(--border-color) solid;
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: var(--title-color);
+}
+
+.description {
+  margin-bottom: 1rem;
+}

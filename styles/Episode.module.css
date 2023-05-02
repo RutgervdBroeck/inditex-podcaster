@@ -1,0 +1,6 @@
+.episode {
+  display: flex;
+  max-width: var(--max-page-width);
+  margin: 0 auto;
+  gap: 2rem;
+}

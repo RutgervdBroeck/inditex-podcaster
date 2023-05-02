@@ -22,20 +22,20 @@ type EpisodeEntry = {
 };
 
 interface PodcastPageProps {
-  asideData: PodcastEntry;
+  podcastData: PodcastEntry;
   episodesData: EpisodeEntry[];
 }
 
-const PodcastPage = ({ asideData, episodesData }: PodcastPageProps) => {
+const PodcastPage = ({ podcastData, episodesData }: PodcastPageProps) => {
   const router = useRouter();
 
   return (
     <div className={styles.podcast}>
       <ProfileAside
-        imageSrc={asideData.artworkUrl600}
-        title={asideData.collectionName}
-        author={asideData.artistName}
-        description={asideData.description}
+        imageSrc={podcastData.artworkUrl600}
+        title={podcastData.collectionName}
+        author={podcastData.artistName}
+        description={podcastData.description}
       />
       <PodcastList>
         {episodesData.map(
@@ -56,14 +56,14 @@ const PodcastPage = ({ asideData, episodesData }: PodcastPageProps) => {
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const request = await fetch(
-    `https://itunes.apple.com/lookup?id=${query.id}&media=podcast&entity=podcastEpisode&limit=30`
+    `https://itunes.apple.com/lookup?id=${query["podcast-id"]}&media=podcast&entity=podcastEpisode&limit=30`
   );
   const data = await request.json();
 
   return {
     props: {
-      // TODO: Maybe format this data to what is only required on the podcast to display.
-      asideData: data.results[0],
+      // TODO: Maybe format this data to what is only required on the podcast to display, since there is a lot more keys in the respose.
+      podcastData: data.results[0],
       episodesData: data.results.slice(1, data.results.length),
     },
   };

@@ -55,7 +55,12 @@ const Home = ({ playlistData }: HomePageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=86400, stale-while-revalidate=59"
+  );
+
   const request = await fetch(
     "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json"
   );

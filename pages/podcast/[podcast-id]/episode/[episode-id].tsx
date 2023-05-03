@@ -25,7 +25,15 @@ const EpisodePage = ({ podcastData, episodeData }: EpisodePageProps) => (
   </div>
 );
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  res,
+  query,
+}) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=86400, stale-while-revalidate=59"
+  );
+
   const request = await fetch(
     `https://itunes.apple.com/lookup?id=${query["podcast-id"]}&media=podcast&entity=podcastEpisode&limit=50`
   );

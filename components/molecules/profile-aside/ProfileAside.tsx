@@ -17,7 +17,7 @@ const ProfileAside = ({
   description,
 }: ProfileAsideProps) => (
   <aside className={styles.aside}>
-    <Image src={imageSrc} alt={imageAlt} width={220} height={220} />
+    <Image src={imageSrc} alt={imageAlt} width={268} height={268} />
     <div className={styles.block}>
       <h3>{title}</h3>
       <span>By {author}</span>

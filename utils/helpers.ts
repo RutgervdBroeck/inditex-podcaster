@@ -1,4 +1,4 @@
-import { PlaylistEntry } from "@/pages";
+import { PlaylistEntry } from "./types";
 
 export const filterPlaylistData = (
   list: PlaylistEntry[],

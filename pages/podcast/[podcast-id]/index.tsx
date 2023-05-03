@@ -3,6 +3,7 @@ import ProfileAside from "@/components/molecules/profile-aside/ProfileAside";
 import PodcastList from "@/components/organisms/podcast-list/PodcastList";
 import styles from "@/styles/Podcast.module.css";
 import { formatDate, formatMilliseconds } from "@/utils/helpers";
+import { EpisodeEntry, PodcastEntry } from "@/utils/types";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 

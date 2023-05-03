@@ -10,12 +10,12 @@ interface SearchBoxProps {
 }
 
 const SearchBox = ({ resultCount, onChange, onSubmit }: SearchBoxProps) => {
-  const textInput = useRef<HTMLInputElement>();
+  const textInput = useRef<HTMLInputElement | null>(null);
 
   // TODO: Preferably debounce this method so that tree is not re-rendered every keystroke.
   const handleOnChange = () => {
     const value = textInput.current?.value || "";
-    onSubmit(value);
+    onChange(value);
   };
 
   const handleOnSubmit = (event: FormEvent<HTMLFormElement>) => {

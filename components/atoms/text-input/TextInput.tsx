@@ -3,7 +3,7 @@ import styles from "./TextInput.module.css";
 
 type TextInputProps = InputHTMLAttributes<HTMLInputElement>;
 
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+const TextInput = forwardRef<HTMLInputElement | null, TextInputProps>(
   ({ placeholder, ...props }: TextInputProps, ref) => (
     <input
       type="text"

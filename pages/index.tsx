@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { filterPlaylistData } from "@/utils/helpers";
 import TileList from "@/components/organisms/tile-list/TileList";
 import Tile from "@/components/molecules/tile/Tile";
-import { PlaylistEntry } from "@/utils/types";
+import { PlaylistEntry, PlaylistResponseData } from "@/utils/types";
 
 interface HomePageProps {
   playlistData: PlaylistEntry[];

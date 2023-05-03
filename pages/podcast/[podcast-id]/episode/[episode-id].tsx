@@ -1,6 +1,7 @@
 import EpisodeDetail from "@/components/molecules/episode-detail/EpisodeDetail";
 import ProfileAside from "@/components/molecules/profile-aside/ProfileAside";
 import styles from "@/styles/Episode.module.css";
+import { EpisodeEntry, PodcastEntry } from "@/utils/types";
 import { GetServerSideProps } from "next";
 
 interface EpisodePageProps {

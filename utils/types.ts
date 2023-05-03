@@ -29,13 +29,7 @@ type PlaylistAuthorEntry = PlaylistKeyEntry & {
   };
 };
 
-type PlaylistResponseData = {
-  feed: {
-    entry: PlaylistEntry[];
-  };
-};
-
-type PodcastEntry = {
+export type PodcastEntry = {
   artistId: number;
   artistName: string;
   collectionName: string;
@@ -43,11 +37,17 @@ type PodcastEntry = {
   description: string; // TODO: The description doesn't seem to be there in the response?
 };
 
-type EpisodeEntry = {
+export type EpisodeEntry = {
   trackId: string;
   trackName: string;
   releaseDate: string;
   trackTimeMillis: number;
   description: string;
   episodeUrl: string;
+};
+
+export type PlaylistResponseData = {
+  feed: {
+    entry: PlaylistEntry[];
+  };
 };

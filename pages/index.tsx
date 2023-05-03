@@ -62,14 +62,18 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   );
 
   const request = await fetch(
-    "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json"
+    "https://itunes.apple.com/us/rss/toppodcasts/limit=50/genre=1310/json"
   );
   const data: PlaylistResponseData = await request.json();
+
+  if (!data) {
+    console.warn("Required page data is missing");
+  }
 
   return {
     props: {
       // TODO: Maybe format this data to what is only required on the homepage to display.
-      playlistData: data.feed.entry,
+      playlistData: data?.feed.entry,
     },
   };
 };

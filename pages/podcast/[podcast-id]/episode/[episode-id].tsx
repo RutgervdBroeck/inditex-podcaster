@@ -39,11 +39,15 @@ export const getServerSideProps: GetServerSideProps = async ({
   );
   const data = await request.json();
 
+  if (!data) {
+    console.warn("Required page data is missing");
+  }
+
   return {
     props: {
       // TODO: Maybe format this data to what is only required on the podcast to display, since there is a lot more keys in the respose.
-      podcastData: data.results[0],
-      episodeData: data.results.filter(
+      podcastData: data?.results[0],
+      episodeData: data?.results.filter(
         (episode: EpisodeEntry) => `${episode.trackId}` === query["episode-id"]
       )[0],
     },

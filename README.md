@@ -5,7 +5,9 @@ First, install dependencies:
 ```bash
 npm i
 # or
-npm install
+yarn install
+# or
+pnpm install
 ```
 
 Then run the development server:
@@ -31,6 +33,10 @@ pnpm build
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Caching
+
+The page requests are being cached in the `getServerSideProps` methods. The `s-maxage` is set to a day to make sure it is re-newed after a day.
 
 ## Learn More
 

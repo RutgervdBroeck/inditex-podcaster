@@ -55,15 +55,19 @@ export const getServerSideProps: GetServerSideProps = async ({
   );
 
   const request = await fetch(
-    `https://itunes.apple.com/lookup?id=${query["podcast-id"]}&media=podcast&entity=podcastEpisode&limit=30`
+    `https://itunes.apple.com/lookup?id=${query["podcast-id"]}&media=podcast&entity=podcastEpisode&limit=50`
   );
   const data = await request.json();
+
+  if (!data) {
+    console.warn("Required page data is missing");
+  }
 
   return {
     props: {
       // TODO: Maybe format this data to what is only required on the podcast to display, since there is a lot more keys in the respose.
-      podcastData: data.results[0],
-      episodesData: data.results.slice(1, data.results.length),
+      podcastData: data?.results[0] || undefined,
+      episodesData: data?.results.slice(1, data.results.length) || undefined,
     },
   };
 };

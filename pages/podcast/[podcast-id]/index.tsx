@@ -22,6 +22,7 @@ const PodcastPage = ({ podcastData, episodesData }: PodcastPageProps) => {
         title={podcastData.collectionName}
         author={podcastData.artistName}
         description={podcastData.description} // TODO: The description doesn't seem to be in the first item of the response?
+        profileSlug={router.asPath}
       />
       <div className={styles.container}>
         <div className={styles.title}>

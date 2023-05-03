@@ -16,6 +16,7 @@ const EpisodePage = ({ podcastData, episodeData }: EpisodePageProps) => (
       title={podcastData.collectionName}
       author={podcastData.artistName}
       description={podcastData.description}
+      profileSlug={`/podcast/${podcastData.collectionId}`}
     />
     <EpisodeDetail
       title={episodeData.trackName}

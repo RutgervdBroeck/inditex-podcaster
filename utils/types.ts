@@ -32,6 +32,7 @@ type PlaylistAuthorEntry = PlaylistKeyEntry & {
 export type PodcastEntry = {
   artistId: number;
   artistName: string;
+  collectionId: string;
   collectionName: string;
   artworkUrl600: string;
   description: string; // TODO: The description doesn't seem to be there in the response?
